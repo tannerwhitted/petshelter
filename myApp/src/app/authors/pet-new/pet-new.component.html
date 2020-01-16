@@ -1,0 +1,94 @@
+<style>
+.fieldset a {
+  display: inline-block;
+  position: relative;
+  left: 10px;
+}
+.wrapper {
+  margin: auto 0;
+  padding: 10px;
+}
+</style>
+
+<div class="wrapper">
+  <section>
+    <h4>Know of a pet needing a home?</h4>
+    <fieldset>
+      <form (submit) = 'onSubmit($event, petForm)' #petForm='ngForm'>
+        <div class="form_group">
+          <label for="">Name</label>
+          <input type="text"
+          class="form_control"
+          name="name"
+          [(ngModel)]='pet.name'
+          #name='ngModel'
+          minlength="3"
+          required>
+        </div>
+        <div *ngIf="(name.touched || name.dirty) && name.errors">
+          <div *ngIf="name?.errors?.required" class="alert alert-danger">
+            You must enter a pet name!
+          </div>
+          <div *ngIf="name?.errors?.minlength" class="alert alert-danger">
+            Name must be at least
+            {{ name?.errors?.minlength.requiredLength }} characters
+          </div>
+        </div>
+        <div class="form_group">
+          <label for="">Pet Type</label>
+          <input type="text"
+          class="form_control"
+          name="type"
+          [(ngModel)]='pet.type'
+          #type='ngModel'
+          minlength="3"
+          required>
+        </div>
+        <div *ngIf="(type.touched || type.dirty) && type.errors">
+          <div *ngIf="type?.errors?.required" class="alert alert-danger">
+            You must enter a book type!
+          </div>
+          <div *ngIf="type?.errors?.minlength" class="alert alert-danger">
+            Type must be at least
+            {{ type?.errors?.minlength.requiredLength }} characters
+          </div>
+        </div>
+        <div class="form_group">
+          <label for="">Description</label>
+          <input type="text"
+          class="form_control"
+          name="description"
+          [(ngModel)]='pet.description'
+          #description='ngModel'
+          minlength="3"
+          required>
+        </div>
+        <div *ngIf="(description.touched || description.dirty) && description.errors">
+          <div *ngIf="description?.errors?.required" class="alert alert-danger">
+            You must enter a book description!
+          </div>
+          <div *ngIf="description?.errors?.minlength" class="alert alert-danger">
+            Description must be at least
+            {{ description?.errors?.minlength.requiredLength }} characters
+          </div>
+        </div>
+        <h4>Skills</h4>
+        <div class="form_group">
+          <label for="">Skill 1</label>
+          <input type="text" class="form_control" name="skill1" [(ngModel)]='pet.skill1'>
+        </div>
+        <div class="form_group">
+          <label for="">Skill 2</label>
+          <input type="text" class="form_control" name="skill2" [(ngModel)]='pet.skill2'>
+        </div>
+        <div class="form_group">
+          <label for="">Skill 3</label>
+          <input type="text" class="form_control" name="skill3" [(ngModel)]='pet.skill3'>
+        </div>
+          <input type="submit">
+          <a href='/'>Cancel</a>
+      </form>
+
+    </fieldset>
+  </section>
+</div>

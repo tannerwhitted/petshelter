@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>pet</title>
+  <style>
+  .wrapper {
+    margin: auto 0;
+    padding: 10px;
+  }
+  .wrapper h2 {
+    display: inline-block;
+  }
+  .wrapper a {
+    float: right;
+  }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <section>
+        <fieldset>
+          <h2>Details about {{pet?.name}}</h2>
+          <a href="/">Home</a>
+          <p>Pet Type: {{ pet?.type }}</p>
+          <p>Description: {{ pet?.description }}</p>
+          <p>Skills: {{ pet?.skill1 }} <br> {{pet?.skill2}} <br> {{pet?.skill3}} </p>
+        </fieldset>
+      <button (click)='onEvent($event)' (click)='onDelete(pet)' href='/' >Adopt this pet!</button>
+    </section>
+  </div>
+</body>
+</html>
